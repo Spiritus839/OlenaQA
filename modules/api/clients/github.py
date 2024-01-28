@@ -15,3 +15,20 @@ class GitHub:
         body = r.json()
 
         return body
+    
+    #метод для пошуку емоджи
+    def search_emojis(self, emoji_name):
+        r = requests.get(
+            "https://api.github.com/emojis",
+            params={"q": emoji_name}
+            )
+        body = r.json()
+
+        return body
+    
+    #метод для пошуку комітів
+    def search_commits(self, owner, repo):
+        r = requests.get(f'https://api.github.com/repos/{owner}/{repo}/commits')
+    
+        return r
+        
